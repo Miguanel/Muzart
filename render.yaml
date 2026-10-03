@@ -1,0 +1,14 @@
+# Blueprint dla Render (https://render.com/docs/blueprint-spec)
+# Render -> New -> Blueprint -> wskaż repozytorium z tym plikiem.
+services:
+  - type: web
+    name: muzart
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app --workers 2 --threads 4 --timeout 60 --bind 0.0.0.0:$PORT
+    healthCheckPath: /healthz
+    autoDeploy: true
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9

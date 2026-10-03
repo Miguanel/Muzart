@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
+  <title>Muzart</title>
+  <meta name="description" content="Muzart — fraktalne studio zegarów muzycznych i aranżer Chronos. Nagrywaj, tnij, układaj i zapętlaj dźwięki prosto w przeglądarce.">
+  <meta name="theme-color" content="#1B2631">
+  <meta name="color-scheme" content="dark">
+
+  <!-- PWA / instalacja -->
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/static/icons/icon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/static/icons/icon-192.png">
+
+  <!-- iOS / iPadOS / macOS Safari -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Muzart">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="apple-touch-icon" href="/static/icons/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/static/icons/icon-152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="/static/icons/icon-167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/static/icons/icon-180.png">
+
+  <link rel="stylesheet" href="/static/css/app.css">
+</head>
+<body>
+  <div id="app">
+    <div id="init-screen" class="init-screen">
+      <div class="init-inner">
+        <img src="/static/icons/icon-192.png" alt="" class="init-logo" width="96" height="96">
+        <h1 class="init-title">MUZART</h1>
+        <div class="init-progress"><div class="init-progress-bar" id="init-progress-bar"></div></div>
+        <p class="init-status" id="init-status">Inicjalizacja...</p>
+      </div>
+    </div>
+
+    <div id="shell" class="shell" hidden>
+      <nav id="nav" class="nav" aria-label="Nawigacja">
+        <button class="nav-item" data-tab="0" type="button">
+          <span class="nav-icon" aria-hidden="true">🎨</span>
+          <span class="nav-label" data-i18n="studio">Studio</span>
+        </button>
+        <button class="nav-item" data-tab="1" type="button">
+          <span class="nav-icon" aria-hidden="true">🎼</span>
+          <span class="nav-label" data-i18n="chronos_arranger">Aranżer Chronos</span>
+        </button>
+      </nav>
+      <main id="main" class="main">
+        <section id="tab-studio" class="tab" hidden></section>
+        <section id="tab-chronos" class="tab" hidden></section>
+      </main>
+    </div>
+
+    <div id="overlay-root"></div>
+    <div id="toast-root" class="toast-root" aria-live="polite"></div>
+  </div>
+
+  <noscript>Muzart wymaga włączonej obsługi JavaScript.</noscript>
+  <script type="module" src="/static/js/app.js"></script>
+</body>
+</html>
